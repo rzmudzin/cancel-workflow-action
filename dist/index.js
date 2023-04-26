@@ -9756,8 +9756,8 @@ async function main() {
             if (all_but_latest && new Date(current_run.created_at) < cancelBefore) {
                 runningWorkflows.push(current_run);
             }
-            for (const { id } of workflow_runs) {
-              console.log('Inspecting run: ', { id });
+            for (const { id, workflow_id } of workflow_runs) {
+              console.log('Inspecting run: ', { id, workflow_id });
             }
             console.log(`Found ${runningWorkflows.length} runs to cancel. (javascript)`);
             for (const { id, head_sha, status, html_url } of runningWorkflows) {
