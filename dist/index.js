@@ -9756,7 +9756,7 @@ async function main() {
             if (all_but_latest && new Date(current_run.created_at) < cancelBefore) {
                 runningWorkflows.push(current_run);
             }
-            console.log(`Found ${runningWorkflows.length} runs to cancel.`);
+            console.log(`Found ${runningWorkflows.length} runs to cancel. (javascript)`);
             for (const { id, head_sha, status, html_url } of runningWorkflows) {
                 console.log('Canceling run: ', { id, head_sha, status, html_url });
                 const res = await octokit.rest.actions.cancelWorkflowRun({

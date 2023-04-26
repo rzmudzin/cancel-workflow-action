@@ -98,7 +98,7 @@ async function main() {
           // We must cancel this run last so we can cancel the others first.
           runningWorkflows.push(current_run);
         }
-        console.log(`Found ${runningWorkflows.length} runs to cancel.`);
+        console.log(`Found ${runningWorkflows.length} runs to cancel. (typescript)`);
         for (const { id, head_sha, status, html_url } of runningWorkflows) {
           console.log('Canceling run: ', { id, head_sha, status, html_url });
           const res = await octokit.rest.actions.cancelWorkflowRun({
