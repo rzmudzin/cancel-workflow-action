@@ -9757,7 +9757,8 @@ async function main() {
                 runningWorkflows.push(current_run);
             }
             for (let r of workflow_runs) {
-              console.log(r);
+              // console.log(r);
+              console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
             // for (const { id, workflow_id } of workflow_runs) {
             //   console.log('Inspecting run: ', { id, workflow_id });
