@@ -9756,10 +9756,18 @@ async function main() {
             if (all_but_latest && new Date(current_run.created_at) < cancelBefore) {
                 runningWorkflows.push(current_run);
             }
+            let runId = Number(GITHUB_RUN_ID);
+            console.log(`Dumping pipeline runs via Run Id: ${runId}`);
             for (let r of workflow_runs) {
               // console.log(r);
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
+            // const res = await octokit.rest.actions.cancelWorkflowRun({
+            //         owner,
+            //         repo,
+            //         run_id: id,
+            //     });
+            //     console.log(`Cancel run ${id} responded with status ${res.status}`);
             // for (const { id, workflow_id } of workflow_runs) {
             //   console.log('Inspecting run: ', { id, workflow_id });
             // }
