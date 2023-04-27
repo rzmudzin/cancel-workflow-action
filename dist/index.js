@@ -9702,6 +9702,7 @@ async function main() {
         headSha = payload.workflow_run.head_sha;
     }
     console.log({ eventName, sha, headSha, branch, owner, repo, GITHUB_RUN_ID });
+    const selectedAction = core.getInput('selected_action');
     const token = core.getInput('access_token');
     const workflow_id = core.getInput('workflow_id', { required: false });
     const ignore_sha = core.getBooleanInput('ignore_sha', { required: false });
