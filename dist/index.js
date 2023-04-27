@@ -9762,12 +9762,13 @@ async function main() {
               // console.log(r);
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
-            // const res = await octokit.rest.actions.cancelWorkflowRun({
-            //         owner,
-            //         repo,
-            //         run_id: id,
-            //     });
-            //     console.log(`Cancel run ${id} responded with status ${res.status}`);
+            console.log(`Cancel current run ${runId}`);
+            const result = await octokit.rest.actions.cancelWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: runId,
+                });
+            console.log(`Cancel run ${runId} responded with status ${result.status}`);
             // for (const { id, workflow_id } of workflow_runs) {
             //   console.log('Inspecting run: ', { id, workflow_id });
             // }
