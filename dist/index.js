@@ -9707,7 +9707,7 @@ async function main() {
     const workflow_id = core.getInput('workflow_id', { required: false });
     const ignore_sha = core.getBooleanInput('ignore_sha', { required: false });
     const all_but_latest = core.getBooleanInput('all_but_latest', { required: false });
-    console.log('Selected Action: ${selectedAction}');
+    console.log(`Selected Action: ${selectedAction}`);
     console.log(`Found token: ${token ? 'yes' : 'no'}`);
     const workflow_ids = [];
     const octokit = github.getOctokit(token);
