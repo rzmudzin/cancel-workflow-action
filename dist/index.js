@@ -9765,6 +9765,7 @@ async function main() {
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
             if (selectedAction == "Uno") {
+              console.log("Uno is the selected action");
               console.log(`Cancel current run ${runId}`);
               const result = await octokit.rest.actions.cancelWorkflowRun({
                       owner,
@@ -9772,6 +9773,8 @@ async function main() {
                       run_id: runId,
                   });
               console.log(`Cancel run ${runId} responded with status ${result.status}`);
+            } else {
+              console.log("Selected action is NOT Uno");
             }
             // for (const { id, workflow_id } of workflow_runs) {
             //   console.log('Inspecting run: ', { id, workflow_id });
