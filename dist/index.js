@@ -9755,8 +9755,12 @@ async function main() {
                 (ignore_sha || run.head_sha !== headSha) &&
                 run.status !== 'completed' &&
                 new Date(run.created_at) < cancelBefore);
-            if (all_but_latest && new Date(current_run.created_at) < cancelBefore) {
-                runningWorkflows.push(current_run);
+            if (all_but_latest) {
+              console.log("Processing all but latest");
+              console.log("Is Before: " + (new Date(current_run.created_at) < cancelBefore));
+              if (all_but_latest && new Date(current_run.created_at) < cancelBefore) {
+                  runningWorkflows.push(current_run);
+              }
             }
             
             console.log(new Date(current_run.created_at));
