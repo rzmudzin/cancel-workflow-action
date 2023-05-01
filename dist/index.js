@@ -9763,14 +9763,14 @@ async function main() {
               }
             }
             
-            console.log(new Date(current_run.created_at));
-            console.log(cancelBefore);
+            console.log("Current Run Time: " + new Date(current_run.created_at));
+            console.log("Cancel Before Time: " + cancelBefore);
             let runId = Number(GITHUB_RUN_ID);
             console.log(`Dumping pipeline runs via Run Id: ${runId}`);
             for (let r of runningWorkflows) {
-              // console.log(r);
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
+            
             /*
             if (selectedAction == "Uno") {
               console.log("Uno is the selected action");
