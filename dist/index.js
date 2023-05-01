@@ -9759,9 +9759,11 @@ async function main() {
                 runningWorkflows.push(current_run);
             }
             
+            console.log(new Date(current_run.created_at));
+            console.log(cancelBefore);
             let runId = Number(GITHUB_RUN_ID);
             console.log(`Dumping pipeline runs via Run Id: ${runId}`);
-            for (let r of workflow_runs) {
+            for (let r of runningWorkflows) {
               // console.log(r);
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
