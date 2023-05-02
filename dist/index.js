@@ -9773,7 +9773,8 @@ async function main() {
             }
 
             if (cancel_self) {
-              console.log(`Cancel current run ${runId}`);
+              console.log(`Cancel self requested`);
+              console.log(`Canceling current run ${runId}`);
               const result = await octokit.rest.actions.cancelWorkflowRun({
                       owner,
                       repo,
