@@ -9707,6 +9707,7 @@ async function main() {
     const workflow_id = core.getInput('workflow_id', { required: false });
     const ignore_sha = core.getBooleanInput('ignore_sha', { required: false });
     const all_but_latest = core.getBooleanInput('all_but_latest', { required: false });
+    const cancel_self = core.getBooleanInput('cancel_self', { required: false });
     console.log(`Selected Action: ${selectedAction}`);
     console.log(`Found token: ${token ? 'yes' : 'no'}`);
     const workflow_ids = [];
@@ -9770,10 +9771,8 @@ async function main() {
             for (let r of runningWorkflows) {
               console.log(`Run Id: ${r.id} number ${r.run_number}`);
             }
-            
-            /*
-            if (selectedAction == "Uno") {
-              console.log("Uno is the selected action");
+
+            if (cancel_self) {
               console.log(`Cancel current run ${runId}`);
               const result = await octokit.rest.actions.cancelWorkflowRun({
                       owner,
@@ -9781,13 +9780,8 @@ async function main() {
                       run_id: runId,
                   });
               console.log(`Cancel run ${runId} responded with status ${result.status}`);
-            } else {
-              console.log("Selected action is NOT Uno");
-            }
-            */
-            // for (const { id, workflow_id } of workflow_runs) {
-            //   console.log('Inspecting run: ', { id, workflow_id });
-            // }
+            } 
+
             console.log(`Found ${runningWorkflows.length} runs to cancel. (javascript)`);
             for (const { id, head_sha, status, html_url } of runningWorkflows) {
                 console.log('Canceling run: ', { id, head_sha, status, html_url });

@@ -20,6 +20,10 @@ inputs:
     description: "Cancel all actions but the last one"
     required: false
     default: 'false'
+  cancel_self:
+    description: "Cancel current run"
+    required: false
+    default: 'false' 
   selected_target:
     description: "Target Selection"
     required: false
